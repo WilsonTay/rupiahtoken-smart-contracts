@@ -2,7 +2,7 @@ const fs = require('fs');
 const deployed_addresses_filename = "deployed_addresses.json";
 const DeployedAddresses = require("./" + deployed_addresses_filename);
 
-const ERC20RupiahTokenImplementation = artifacts.require("./token/ERC20RupiahToken");
+const ERC20RinggitTokenImplementation = artifacts.require("./token/ERC20RinggitToken");
 const ProxyAdmin = artifacts.require("./zos/upgradeability/ProxyAdmin");
 const AdminUpgradeabilityProxy = artifacts.require("./zos/upgradeability/AdminUpgradeabilityProxy");
 
@@ -17,7 +17,9 @@ module.exports = function(deployer, network, accounts) {
             case 'rinkeby':    				
             	return AdminUpgradeabilityProxy.new(DeployedAddresses.rinkeby.tokenImplementationV1, DeployedAddresses.rinkeby.proxyAdmin, []);
             case 'mainnet':
-		  		return AdminUpgradeabilityProxy.new(DeployedAddresses.mainnet.tokenImplementationV1, DeployedAddresses.mainnet.proxyAdmin, []);
+				  return AdminUpgradeabilityProxy.new(DeployedAddresses.mainnet.tokenImplementationV1, DeployedAddresses.mainnet.proxyAdmin, []);
+				  case 'bnbtestnet':
+					return AdminUpgradeabilityProxy.new(DeployedAddresses.bnbtestnet.tokenImplementationV1, DeployedAddresses.bnbtestnet.proxyAdmin, []);
     		};
 	}).then(function(instance) {
 		console.log("Token Proxy at:", instance.address);
@@ -30,6 +32,9 @@ module.exports = function(deployer, network, accounts) {
 		  		break;
             case 'rinkeby':    				
             	DeployedAddresses.rinkeby.tokenProxy = instance.address;
+				break;
+				case 'bnbtestnet':    				
+            	DeployedAddresses.bnbtestnet.tokenProxy = instance.address;
             	break;
             case 'mainnet':
 		  		DeployedAddresses.mainnet.tokenProxy = instance.address;

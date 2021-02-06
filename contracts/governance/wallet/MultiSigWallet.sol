@@ -1,7 +1,7 @@
 /**
  * Ethereum Multisignature Wallet <https://github.com/gnosis/MultiSigWallet>     
  * Copyright (c) 2016 Gnosis Ltd.
- * Modified for Rupiah Token by FengkieJ 2019.
+ * Modified for Ringgit Token by FengkieJ 2019.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -47,7 +47,7 @@ import "../../zos/Initializable.sol";
 
 /// @title Multisignature wallet - Allows multiple parties to agree on transactions before execution.
 /// @author Stefan George - <stefan.george@consensys.net>
-/// Modified for Rupiah Token by FengkieJ 2019
+/// Modified for Ringgit Token by FengkieJ 2019
 
 contract MultiSigWallet is Initializable {
     /*

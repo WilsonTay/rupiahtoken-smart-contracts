@@ -5,33 +5,38 @@ const assert = require('assert').strict;
 const DeployedAddresses = require("./" + deployed_addresses_filename);
 const Config = require("./config.json");
 
-const ERC20RupiahToken = artifacts.require("./token/ERC20RupiahToken");
-const IDRTWallet = artifacts.require("./governance/wallet/IDRTWallet");
+const ERC20RinggitToken = artifacts.require("./token/ERC20RinggitToken");
+const MYRTWallet = artifacts.require("./governance/wallet/MYRTWallet");
 const ProxyAdmin = artifacts.require("./zos/upgradeability/ProxyAdmin");
 
 module.exports = async function(deployer, network, accounts) {
     let token, wallet, proxyAdmin;
     switch(network) {
         case 'development': 
-            token = await ERC20RupiahToken.at(DeployedAddresses.dev.tokenProxy);
-            wallet = await IDRTWallet.at(DeployedAddresses.dev.walletProxy);
+            token = await ERC20RinggitToken.at(DeployedAddresses.dev.tokenProxy);
+            wallet = await MYRTWallet.at(DeployedAddresses.dev.walletProxy);
             proxyAdmin = await ProxyAdmin.at(DeployedAddresses.dev.proxyAdmin);
             break;
         case 'ropsten':
-            token = await ERC20RupiahToken.at(DeployedAddresses.ropsten.tokenProxy);
-            wallet = await IDRTWallet.at(DeployedAddresses.ropsten.walletProxy);
+            token = await ERC20RinggitToken.at(DeployedAddresses.ropsten.tokenProxy);
+            wallet = await MYRTWallet.at(DeployedAddresses.ropsten.walletProxy);
             proxyAdmin = await ProxyAdmin.at(DeployedAddresses.ropsten.proxyAdmin);
             break;
         case 'rinkeby':                 
-            token = await ERC20RupiahToken.at(DeployedAddresses.rinkeby.tokenProxy);
-            wallet = await IDRTWallet.at(DeployedAddresses.rinkeby.walletProxy);
+            token = await ERC20RinggitToken.at(DeployedAddresses.rinkeby.tokenProxy);
+            wallet = await MYRTWallet.at(DeployedAddresses.rinkeby.walletProxy);
             proxyAdmin = await ProxyAdmin.at(DeployedAddresses.rinkeby.proxyAdmin);
             break;
         case 'mainnet':
-            token = await ERC20RupiahToken.at(DeployedAddresses.mainnet.tokenProxy);
-            wallet = await IDRTWallet.at(DeployedAddresses.mainnet.walletProxy);
+            token = await ERC20RinggitToken.at(DeployedAddresses.mainnet.tokenProxy);
+            wallet = await MYRTWallet.at(DeployedAddresses.mainnet.walletProxy);
             proxyAdmin = await ProxyAdmin.at(DeployedAddresses.mainnet.proxyAdmin);
             break;
+            case 'bnbtestnet':
+                token = await ERC20RinggitToken.at(DeployedAddresses.bnbtestnet.tokenProxy);
+                wallet = await MYRTWallet.at(DeployedAddresses.bnbtestnet.walletProxy);
+                proxyAdmin = await ProxyAdmin.at(DeployedAddresses.bnbtestnet.proxyAdmin);
+                break;
         };
         
     console.log("Change ERC20 Ownership to wallet address...");

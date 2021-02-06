@@ -6,10 +6,10 @@ const {
 } = require("openzeppelin-test-helpers");
 const { ZERO_ADDRESS } = constants;
 const TestUtils = require("./TestUtils");
-const ERC20RupiahToken = artifacts.require("ERC20RupiahToken");
-const ERC20RupiahTokenV2 = artifacts.require("ERC20RupiahTokenV2");
-const IDRTWallet = artifacts.require("IDRTWallet");
-const IDRTWalletV2 = artifacts.require("IDRTWalletV2");
+const ERC20RinggitToken = artifacts.require("ERC20RinggitToken");
+const ERC20RinggitTokenV2 = artifacts.require("ERC20RinggitTokenV2");
+const MYRTWallet = artifacts.require("MYRTWallet");
+const MYRTWalletV2 = artifacts.require("MYRTWalletV2");
 const ProxyAdmin = artifacts.require("ProxyAdmin");
 
 contract("Upgradeability", function([
@@ -20,8 +20,8 @@ contract("Upgradeability", function([
   anotherAccount,
   ...otherAccounts
 ]) {
-  const _name = "Rupiah Token";
-  const _symbol = "IDRT";
+  const _name = "Ringgit Token";
+  const _symbol = "MYRT";
   const _currency = "IDR";
   const _decimals = new BN(2);
 
@@ -29,7 +29,7 @@ contract("Upgradeability", function([
     proxyAdmin = await TestUtils.createProxyAdmin(deployer);
 
     tokenImplementation = await TestUtils.createImplementation(
-      ERC20RupiahToken
+      ERC20RinggitToken
     );
     tokenProxy = await TestUtils.createProxy(
       tokenImplementation.address,
@@ -37,15 +37,15 @@ contract("Upgradeability", function([
       []
     );
 
-    walletImplementation = await TestUtils.createImplementation(IDRTWallet);
+    walletImplementation = await TestUtils.createImplementation(MYRTWallet);
     walletProxy = await TestUtils.createProxy(
       walletImplementation.address,
       proxyAdmin.address,
       []
     );
 
-    this.token = await ERC20RupiahToken.at(tokenProxy.address);
-    this.wallet = await IDRTWallet.at(walletProxy.address);
+    this.token = await ERC20RinggitToken.at(tokenProxy.address);
+    this.wallet = await MYRTWallet.at(walletProxy.address);
     this.proxyAdmin = await ProxyAdmin.at(proxyAdmin.address);
 
     await TestUtils.initializeTokenProxy(this.token);
@@ -58,7 +58,7 @@ contract("Upgradeability", function([
     describe("token", function() {
       beforeEach(async function() {
         tokenImplementationV2 = await TestUtils.createImplementation(
-          ERC20RupiahTokenV2
+          ERC20RinggitTokenV2
         );
       });
 
@@ -94,7 +94,7 @@ contract("Upgradeability", function([
             tokenImplementationV2.address,
             { from: deployer }
           );
-          this.token = await ERC20RupiahTokenV2.at(tokenProxy.address);
+          this.token = await ERC20RinggitTokenV2.at(tokenProxy.address);
         });
 
         it("should retain the previous storage", async function() {
@@ -125,7 +125,7 @@ contract("Upgradeability", function([
     describe("wallet", function() {
       beforeEach(async function() {
         walletImplementationV2 = await TestUtils.createImplementation(
-          IDRTWalletV2
+          MYRTWalletV2
         );
       });
 
@@ -161,7 +161,7 @@ contract("Upgradeability", function([
             walletImplementationV2.address,
             { from: deployer }
           );
-          this.wallet = await IDRTWalletV2.at(walletProxy.address);
+          this.wallet = await MYRTWalletV2.at(walletProxy.address);
         });
 
         it("should retain the previous storage", async function() {
@@ -192,7 +192,7 @@ contract("Upgradeability", function([
     describe("token", function() {
       beforeEach(async function() {
         tokenImplementationV2 = await TestUtils.createImplementation(
-          ERC20RupiahTokenV2
+          ERC20RinggitTokenV2
         );
       });
 
@@ -231,7 +231,7 @@ contract("Upgradeability", function([
             "0x70a08231",
             { from: deployer }
           );
-          this.token = await ERC20RupiahTokenV2.at(tokenProxy.address);
+          this.token = await ERC20RinggitTokenV2.at(tokenProxy.address);
         });
 
         it("should retain the previous storage", async function() {
@@ -262,7 +262,7 @@ contract("Upgradeability", function([
     describe("wallet", function() {
       beforeEach(async function() {
         walletImplementationV2 = await TestUtils.createImplementation(
-          IDRTWalletV2
+          MYRTWalletV2
         );
       });
 
@@ -301,7 +301,7 @@ contract("Upgradeability", function([
             [],
             { from: deployer }
           );
-          this.wallet = await IDRTWalletV2.at(walletProxy.address);
+          this.wallet = await MYRTWalletV2.at(walletProxy.address);
         });
 
         it("should retain the previous storage", async function() {

@@ -1,7 +1,7 @@
 {
-  "name": "rupiahtoken",
+  "name": "Ringgittoken",
   "version": "1.0.0",
-  "description": "An ERC20 crypto token that represents Indonesian Rupiah.",
+  "description": "An ERC20 crypto token that represents Indonesian Ringgit.",
   "main": "truffle-config.js",
   "directories": {
     "test": "test"
@@ -12,18 +12,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rupiah-token/rupiahtoken-smart-contracts.git"
+    "url": "git+https://github.com/Ringgit-token/Ringgittoken-smart-contracts.git"
   },
-  "author": "Rupiah Token",
+  "author": "Ringgit Token",
   "license": "AGPL-3.0",
   "bugs": {
-    "url": "https://github.com/rupiah-token/rupiahtoken-smart-contracts//issues"
+    "url": "https://github.com/Ringgit-token/Ringgittoken-smart-contracts//issues"
   },
-  "homepage": "https://github.com/rupiah-token/rupiahtoken-smart-contracts/#readme",
+  "homepage": "https://github.com/Ringgit-token/Ringgittoken-smart-contracts/#readme",
   "dependencies": {
     "assert": "^2.0.0",
     "openzeppelin-test-helpers": "^0.2.0",
     "truffle-hdwallet-provider": "^1.0.4",
-    "web3": "^1.2.1"
+    "truffle-plugin-verify": "^0.5.4",
+    "web3": "^1.2.1",
+    "web3-provider-engine": "^16.0.1"
   }
 }

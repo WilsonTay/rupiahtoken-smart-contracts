@@ -1,6 +1,6 @@
 /**
- * Rupiah Token Smart Contract
- * Copyright (C) 2019 PT. Rupiah Token Indonesia <https://www.rupiahtoken.com/>. 
+ * Ringgit Token Smart Contract
+ * Copyright (C) 2019 PT. Ringgit Token Indonesia <https://www.Ringgittoken.com/>. 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -20,11 +20,11 @@
  *
  *     OpenZeppelin <https://github.com/OpenZeppelin/openzeppelin-solidity/>     
  *     Copyright (c) 2016 Smart Contract Solutions, Inc.
- *     Modified for Rupiah Token by FengkieJ 2019.
+ *     Modified for Ringgit Token by FengkieJ 2019.
  * 
  *     centre-tokens <https://github.com/centrehq/centre-tokens>
  *     Copyright CENTRE SECZ 2018.
- *     Modified for Rupiah Token by FengkieJ 2019.
+ *     Modified for Ringgit Token by FengkieJ 2019.
  *
  *     ZeppelinOS (zos) <https://github.com/zeppelinos/zos>
  *     Copyright (c) 2018 ZeppelinOS Global Limited.
@@ -50,14 +50,14 @@
  */
 pragma solidity 0.4.25;
 
-import "./ERC20RupiahTokenV1.sol";
+import "./ERC20RinggitTokenV1.sol";
 
 /**
- * @title ERC20RupiahTokenV2 
- * @dev Version 2 for ERC20RupiahToken
+ * @title ERC20RinggitTokenV2 
+ * @dev Version 2 for ERC20RinggitToken
  * For demo purpose of zos upgradeability 
  */
-contract ERC20RupiahTokenV2 is ERC20RupiahToken {
+contract ERC20RinggitTokenV2 is ERC20RinggitToken {
     string constant public shouldBeAString = "Upgraded to V2";
     string public shouldBeEmptyString = "Upgraded to V2";
 

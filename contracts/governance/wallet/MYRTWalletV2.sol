@@ -37,14 +37,14 @@
  */
 pragma solidity 0.4.25;
 
-import "./IDRTWalletV1.sol";
+import "./MYRTWalletV1.sol";
 
 /**
- * @title IDRTWalletV2
+ * @title MYRTWalletV2
  * @dev Version 2 for ERC20RupiahToken
  * For demo purpose of zos upgradeability 
  */
-contract IDRTWalletV2 is IDRTWallet {
+contract MYRTWalletV2 is MYRTWallet {
     string constant public shouldBeAString = "Upgraded to V2";
     string public shouldBeEmptyString = "Upgraded to V2";
 

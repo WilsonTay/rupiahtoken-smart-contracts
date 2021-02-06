@@ -1,16 +1,16 @@
-# Rupiah Token Smart Contracts
-Rupiah Token (ticker: IDRT) is a fiat stable coin to represent Indonesian Rupiah as ERC20-compatible token by one-to-one peg.
+# Ringgit Token Smart Contracts
+Ringgit Token (ticker: MYRT) is a fiat stable coin to represent Indonesian Ringgit as ERC20-compatible token by one-to-one peg.
 
 This smart contract has been audited and certified by [CertiK](https://certik.org/), for more info please scan the badge.
-![](https://rupiahtoken.com/static/images/badge/certik.png)
+![](https://Ringgittoken.com/static/images/badge/certik.png)
 
 ## Contracts
 ### Governance
 Governance folder contains 4 contracts, 
  - Wallet - MultiSigWallet.sol -> MultiSigWallet enables multiple admin governance to execute certain functions for the smart contract.
- - Wallet - IDRTWalletV1.sol -> Extends the MultiSigWallet contract to add an additional role, and to determine which function is being called.
- -  Wallet - IDRTWalletV2.sol -> Extends the IDRWallet contract to as a demo contract of ZeppelinOS upgradeability.
- - Blacklistable.sol -> A contract to enable admins to blacklist certain addresses from receiving or sending Rupiah Token.
+ - Wallet - MYRTWalletV1.sol -> Extends the MultiSigWallet contract to add an additional role, and to determine which function is being called.
+ -  Wallet - MYRTWalletV2.sol -> Extends the IDRWallet contract to as a demo contract of ZeppelinOS upgradeability.
+ - Blacklistable.sol -> A contract to enable admins to blacklist certain addresses from receiving or sending Ringgit Token.
 
 ### Lifecycle
 Lifecycle folder contains 1 contract, 
@@ -27,8 +27,8 @@ Ownership folder contains 1 contract,
 ### Token
 Token folder contains 3 contracts, 
  - IERC20.sol -> ERC20 Interface, contains required functions to be implemented so that the token is compatible with ERC20 standard.
- - ERC20RupiahTokenV1.sol -> Implementation of Rupiah Token as ERC20 token.
- - ERC20RupiahTokenV2.sol -> Extends ERC20RupiahTokenV1 as sample of ZeppelinOS upgradeability.
+ - ERC20RinggitTokenV1.sol -> Implementation of Ringgit Token as ERC20 token.
+ - ERC20RinggitTokenV2.sol -> Extends ERC20RinggitTokenV1 as sample of ZeppelinOS upgradeability.
 
 ### Utils
 Utils folder contains 1 contract, 
@@ -39,4 +39,4 @@ ZOS folder contains ZeppelinOS libraries.
 
 ## Copyright
 
-Copyright (c) 2019 PT Rupiah Token Indonesia. All Rights Reserved
+Copyright (c) 2019 PT Ringgit Token Indonesia. All Rights Reserved

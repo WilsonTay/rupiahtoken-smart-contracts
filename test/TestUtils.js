@@ -1,10 +1,10 @@
-const TokenImplementation = artifacts.require("ERC20RupiahToken");
+const TokenImplementation = artifacts.require("ERC20RinggitToken");
 const ProxyAdmin = artifacts.require("ProxyAdmin");
 const AdminUpgradeabilityProxy = artifacts.require("AdminUpgradeabilityProxy");
 
 /* Token Details */
-const name = "Rupiah Token";
-const symbol = "IDRT";
+const name = "Ringgit Token";
+const symbol = "MYRT";
 const currency = "IDR";
 const decimals = 2;
 

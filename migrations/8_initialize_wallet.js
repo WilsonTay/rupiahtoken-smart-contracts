@@ -5,23 +5,26 @@ const assert = require('assert').strict;
 const DeployedAddresses = require("./" + deployed_addresses_filename);
 const Config = require("./config.json");
 
-const IDRTWallet = artifacts.require("./governance/wallet/IDRTWallet");
+const MYRTWallet = artifacts.require("./governance/wallet/MYRTWallet");
 
 module.exports = async function(deployer, network, accounts) {
     let wallet;
 	switch(network) {
         case 'development': 
-            wallet = await IDRTWallet.at(DeployedAddresses.dev.walletProxy);
+            wallet = await MYRTWallet.at(DeployedAddresses.dev.walletProxy);
             break;
         case 'ropsten':
-            wallet = await IDRTWallet.at(DeployedAddresses.ropsten.walletProxy);
+            wallet = await MYRTWallet.at(DeployedAddresses.ropsten.walletProxy);
             break;
         case 'rinkeby':                 
-            wallet = await IDRTWallet.at(DeployedAddresses.rinkeby.walletProxy);
+            wallet = await MYRTWallet.at(DeployedAddresses.rinkeby.walletProxy);
             break;
         case 'mainnet':
-            wallet = await IDRTWallet.at(DeployedAddresses.mainnet.walletProxy);
+            wallet = await MYRTWallet.at(DeployedAddresses.mainnet.walletProxy);
             break;
+            case 'bnbtestnet':
+                wallet = await MYRTWallet.at(DeployedAddresses.bnbtestnet.walletProxy);
+                break;
         };
 
     console.log("Initializing wallet contract...");

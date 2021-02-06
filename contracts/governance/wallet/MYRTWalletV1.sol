@@ -61,7 +61,7 @@ pragma solidity 0.4.25;
 
 import "./MultiSigWallet.sol";
 
-contract IDRTWallet is MultiSigWallet {
+contract MYRTWallet is MultiSigWallet {
     uint256 internal _printLimit;
     mapping (uint => bool) internal _requireFinalization;
     address internal _superOwner; 

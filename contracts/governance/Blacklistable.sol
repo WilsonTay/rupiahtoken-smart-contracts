@@ -1,6 +1,6 @@
 /**
- * Rupiah Token Smart Contract
- * Copyright (C) 2019 PT. Rupiah Token Indonesia <https://www.rupiahtoken.com/>. 
+ * Ringgit Token Smart Contract
+ * Copyright (C) 2019 PT. Ringgit Token Indonesia <https://www.Ringgittoken.com/>. 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -20,11 +20,11 @@
  *
  *     OpenZeppelin <https://github.com/OpenZeppelin/openzeppelin-solidity/>     
  *     Copyright (c) 2016 Smart Contract Solutions, Inc.
- *     Modified for Rupiah Token by FengkieJ 2019.
+ *     Modified for Ringgit Token by FengkieJ 2019.
  * 
  *     centre-tokens <https://github.com/centrehq/centre-tokens>
  *     Copyright CENTRE SECZ 2018.
- *     Modified for Rupiah Token by FengkieJ 2019.
+ *     Modified for Ringgit Token by FengkieJ 2019.
  *
  *     The MIT License (MIT)
  *

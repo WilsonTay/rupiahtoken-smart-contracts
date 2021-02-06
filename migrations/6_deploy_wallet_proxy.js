@@ -2,7 +2,7 @@ const fs = require('fs');
 const deployed_addresses_filename = "deployed_addresses.json";
 const DeployedAddresses = require("./" + deployed_addresses_filename);
 
-const IDRTWalletImplementation = artifacts.require("./governance/wallet/IDRTWallet");
+const MYRTWalletImplementation = artifacts.require("./governance/wallet/MYRTWallet");
 const ProxyAdmin = artifacts.require("./zos/upgradeability/ProxyAdmin");
 const AdminUpgradeabilityProxy = artifacts.require("./zos/upgradeability/AdminUpgradeabilityProxy");
 
@@ -17,7 +17,9 @@ module.exports = function(deployer, network, accounts) {
             case 'rinkeby':    				
             	return AdminUpgradeabilityProxy.new(DeployedAddresses.rinkeby.walletImplementationV1, DeployedAddresses.rinkeby.proxyAdmin, []);
             case 'mainnet':
-		  		return AdminUpgradeabilityProxy.new(DeployedAddresses.mainnet.walletImplementationV1, DeployedAddresses.mainnet.proxyAdmin, []);
+				  return AdminUpgradeabilityProxy.new(DeployedAddresses.mainnet.walletImplementationV1, DeployedAddresses.mainnet.proxyAdmin, []);
+				  case 'bnbtestnet':
+					return AdminUpgradeabilityProxy.new(DeployedAddresses.bnbtestnet.walletImplementationV1, DeployedAddresses.bnbtestnet.proxyAdmin, []);
     		};
 	}).then(async function(instance) {
 		console.log("Wallet Proxy at:", instance.address);
@@ -33,7 +35,10 @@ module.exports = function(deployer, network, accounts) {
             	break;
             case 'mainnet':
 		  		DeployedAddresses.mainnet.walletProxy = instance.address;
-                break;
+				break;
+				case 'bnbtestnet':
+					DeployedAddresses.bnbtestnet.walletProxy = instance.address;
+				  break;
     		}
   		fs.writeFileSync("./migrations/" + deployed_addresses_filename, JSON.stringify(DeployedAddresses, null, 2));
   	});

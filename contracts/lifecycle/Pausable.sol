@@ -3,7 +3,7 @@
  *
  * OpenZeppelin <https://github.com/OpenZeppelin/openzeppelin-solidity/>     
  * Copyright (c) 2016 Smart Contract Solutions, Inc.
- * Modified for Rupiah Token by FengkieJ 2019.
+ * Modified for Ringgit Token by FengkieJ 2019.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy 
  * of this software and associated documentation files (the "Software"), to deal 

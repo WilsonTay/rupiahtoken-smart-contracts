@@ -1,6 +1,6 @@
 /**
- * Rupiah Token Smart Contract
- * Copyright (C) 2019 PT. Rupiah Token Indonesia <https://www.rupiahtoken.com/>. 
+ * Ringgit Token Smart Contract
+ * Copyright (C) 2019 PT. Ringgit Token Indonesia <https://www.Ringgittoken.com/>. 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -20,11 +20,11 @@
  *
  *     OpenZeppelin <https://github.com/OpenZeppelin/openzeppelin-solidity/>     
  *     Copyright (c) 2016 Smart Contract Solutions, Inc.
- *     Modified for Rupiah Token by FengkieJ 2019.
+ *     Modified for Ringgit Token by FengkieJ 2019.
  * 
  *     centre-tokens <https://github.com/centrehq/centre-tokens>
  *     Copyright CENTRE SECZ 2018.
- *     Modified for Rupiah Token by FengkieJ 2019.
+ *     Modified for Ringgit Token by FengkieJ 2019.
  *
  *     ZeppelinOS (zos) <https://github.com/zeppelinos/zos>
  *     Copyright (c) 2018 ZeppelinOS Global Limited.
@@ -58,10 +58,10 @@ import "../ownership/Ownable.sol";
 import "../zos/Initializable.sol";
 
 /**
- * @title ERC20RupiahToken
- * @dev ERC20 compliant fiat token that is backed by Indonesian Rupiah 1:1
+ * @title ERC20RinggitToken
+ * @dev ERC20 compliant fiat token that is backed by Indonesian Ringgit 1:1
  */
-contract ERC20RupiahToken is IERC20, Blacklistable, Initializable {
+contract ERC20RinggitToken is IERC20, Blacklistable, Initializable {
     using SafeMath for uint256;
     
     string internal _name;

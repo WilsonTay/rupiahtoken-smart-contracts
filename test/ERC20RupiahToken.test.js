@@ -6,16 +6,16 @@ const {
 } = require("openzeppelin-test-helpers");
 const { ZERO_ADDRESS } = constants;
 const TestUtils = require("./TestUtils");
-const ERC20RupiahToken = artifacts.require("ERC20RupiahToken");
+const ERC20RinggitToken = artifacts.require("ERC20RinggitToken");
 
-contract("ERC20RupiahToken", function([
+contract("ERC20RinggitToken", function([
   deployer,
   initialHolder,
   recipient,
   anotherAccount
 ]) {
-  const _name = "Rupiah Token";
-  const _symbol = "IDRT";
+  const _name = "Ringgit Token";
+  const _symbol = "MYRT";
   const _currency = "IDR";
   const _decimals = new BN(2);
   const initialSupply = new BN(100 * 10 ** _decimals);
@@ -23,7 +23,7 @@ contract("ERC20RupiahToken", function([
   beforeEach(async function() {
     proxyAdmin = await TestUtils.createProxyAdmin(deployer);
     tokenImplementation = await TestUtils.createImplementation(
-      ERC20RupiahToken
+      ERC20RinggitToken
     );
     tokenProxy = await TestUtils.createProxy(
       tokenImplementation.address,
@@ -31,7 +31,7 @@ contract("ERC20RupiahToken", function([
       []
     );
 
-    this.token = await ERC20RupiahToken.at(tokenProxy.address);
+    this.token = await ERC20RinggitToken.at(tokenProxy.address);
     await TestUtils.initializeTokenProxy(this.token);
 
     await this.token.mint(initialHolder, initialSupply / 10 ** _decimals);

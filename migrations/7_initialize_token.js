@@ -5,23 +5,26 @@ const assert = require('assert').strict;
 const DeployedAddresses = require("./" + deployed_addresses_filename);
 const Config = require("./config.json");
 
-const ERC20RupiahToken = artifacts.require("./token/ERC20RupiahToken");
+const ERC20RinggitToken = artifacts.require("./token/ERC20RinggitToken");
 
 module.exports = async function(deployer, network, accounts) {
 	let token;
 	switch(network) {
         case 'development':	
-  			token = await ERC20RupiahToken.at(DeployedAddresses.dev.tokenProxy);
+  			token = await ERC20RinggitToken.at(DeployedAddresses.dev.tokenProxy);
   			break;
     	case 'ropsten':
-  			token = await ERC20RupiahToken.at(DeployedAddresses.ropsten.tokenProxy);
+  			token = await ERC20RinggitToken.at(DeployedAddresses.ropsten.tokenProxy);
   			break;
         case 'rinkeby':    				
-  			token = await ERC20RupiahToken.at(DeployedAddresses.rinkeby.tokenProxy);
+  			token = await ERC20RinggitToken.at(DeployedAddresses.rinkeby.tokenProxy);
   			break;
         case 'mainnet':
-  			token = await ERC20RupiahToken.at(DeployedAddresses.mainnet.tokenProxy);
-  			break;
+  			token = await ERC20RinggitToken.at(DeployedAddresses.mainnet.tokenProxy);
+        break;
+        case 'bnbtestnet':
+          token = await ERC20RinggitToken.at(DeployedAddresses.bnbtestnet.tokenProxy);
+          break;
     	};
 
     console.log("Initializing token contract...");

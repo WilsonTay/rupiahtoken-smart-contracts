@@ -6,10 +6,10 @@ const {
 } = require("openzeppelin-test-helpers");
 const { ZERO_ADDRESS } = constants;
 const TestUtils = require("./TestUtils");
-const ERC20RupiahToken = artifacts.require("ERC20RupiahToken");
-const ERC20RupiahTokenV2 = artifacts.require("ERC20RupiahTokenV2");
-const IDRTWallet = artifacts.require("IDRTWallet");
-const IDRTWalletV2 = artifacts.require("IDRTWalletV2");
+const ERC20RinggitToken = artifacts.require("ERC20RinggitToken");
+const ERC20RinggitTokenV2 = artifacts.require("ERC20RinggitTokenV2");
+const MYRTWallet = artifacts.require("MYRTWallet");
+const MYRTWalletV2 = artifacts.require("MYRTWalletV2");
 const ProxyAdmin = artifacts.require("ProxyAdmin");
 
 contract("Governance", function([
@@ -20,8 +20,8 @@ contract("Governance", function([
   anotherAccount,
   ...otherAccounts
 ]) {
-  const _name = "Rupiah Token";
-  const _symbol = "IDRT";
+  const _name = "Ringgit Token";
+  const _symbol = "MYRT";
   const _currency = "IDR";
   const _decimals = new BN(2);
 
@@ -29,7 +29,7 @@ contract("Governance", function([
     proxyAdmin = await TestUtils.createProxyAdmin(deployer);
 
     tokenImplementation = await TestUtils.createImplementation(
-      ERC20RupiahToken
+      ERC20RinggitToken
     );
     tokenProxy = await TestUtils.createProxy(
       tokenImplementation.address,
@@ -37,15 +37,15 @@ contract("Governance", function([
       []
     );
 
-    walletImplementation = await TestUtils.createImplementation(IDRTWallet);
+    walletImplementation = await TestUtils.createImplementation(MYRTWallet);
     walletProxy = await TestUtils.createProxy(
       walletImplementation.address,
       proxyAdmin.address,
       []
     );
 
-    this.token = await ERC20RupiahToken.at(tokenProxy.address);
-    this.wallet = await IDRTWallet.at(walletProxy.address);
+    this.token = await ERC20RinggitToken.at(tokenProxy.address);
+    this.wallet = await MYRTWallet.at(walletProxy.address);
     this.proxyAdmin = await ProxyAdmin.at(proxyAdmin.address);
 
     await TestUtils.initializeTokenProxy(this.token);
@@ -383,8 +383,8 @@ contract("Governance", function([
       await this.proxyAdmin.transferOwnership(walletProxy.address);
 
       /* Create new implementation for V2 */
-      this.tokenImplementationV2 = await ERC20RupiahTokenV2.new();
-      this.walletImplementationV2 = await IDRTWalletV2.new();
+      this.tokenImplementationV2 = await ERC20RinggitTokenV2.new();
+      this.walletImplementationV2 = await MYRTWalletV2.new();
     });
 
     describe("upgrade", function() {

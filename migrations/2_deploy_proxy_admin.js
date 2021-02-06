@@ -21,6 +21,9 @@ module.exports = function(deployer, network, accounts) {
                 case 'mainnet':
                     DeployedAddresses.mainnet.proxyAdmin = (await ProxyAdmin.deployed()).address;
                     break;
+                    case 'bnbtestnet':
+                        DeployedAddresses.bnbtestnet.proxyAdmin = (await ProxyAdmin.deployed()).address;
+                        break;
             }
         });
     fs.writeFileSync("./migrations/" + deployed_addresses_filename, JSON.stringify(DeployedAddresses, null, 2));
